@@ -1,0 +1,43 @@
+<md-dialog aria-label="Wishlist">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Wishlists</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+          </md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div style="overflow:hidden;height:140px;background:transparent url(images/tours/{{dwl.activity._id}}.png) scroll no-repeat center center">
+        
+      </div>
+      <div class="md-dialog-content">
+        <h2>Your Wishlists</h2>
+        <md-list ng-cloak>
+
+          <md-list-item class="secondary-button-padding" ng-repeat="wishlist in dwl.wishlist.wishlistsCreated">
+            <p>{{wishlist.name}}</p>
+            <span flex></span>
+            <md-button class="md-raised md-primary" ng-click="dwl.addActivityToWishlist(wishlist._id)">Add Activity</md-button>
+          </md-list-item>
+        </md-list>
+        
+        <h2>Others Wishlists</h2>
+        <md-list ng-cloak>
+
+          <md-list-item class="secondary-button-padding" ng-repeat="wishlist in dwl.wishlist.wishlistsJoined">
+            <p>{{wishlist.name}}</p>
+            <span flex></span>
+            <md-button class="md-raised md-primary" ng-click="dwl.addActivityToWishlist(wishlist._id)">Add Activity</md-button>
+          </md-list-item>
+
+        </md-list>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

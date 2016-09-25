@@ -2,8 +2,26 @@
     <div flex>
       <search-bar-home style="margin-top: 30px"></search-bar-home>
     </div>
-    <section class="list" layout="column">
-      <h2>Best Deals</h2>
-      <activity-featured-list layout="row"></activity-featured-list>
+    <section class="detail" layout="column">
+      <img flex ng-src="images/tours/{{vm.activity._id}}.png" />
+      <div flex layout="row" layout-align="start start" style="margin-top:20px">
+        <div flex="10">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+        <div flex>
+          <a href="/">10 reviews</a>
+        </div>
+      </div>
+      <h2 flex>{{vm.activity.name}}</h2>
+      <p>{{vm.activity.summaryDescription}}</p>
+      <div class="buttons" layout="row" layout-align="center center">
+        <md-button flex="none" class="md-raised md-warn" ng-click="vm.addToWishlist($event)">Add to Wishlist</md-button>
+        <span flex="20"></span>
+        <md-button flex="none" class="md-raised md-primary">Book Now</md-button>
+      </div>
     </section>
 </div>

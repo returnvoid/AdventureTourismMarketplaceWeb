@@ -18,7 +18,7 @@ function testService(){
 function ActivitiesService($http, $q){
   return{
     activityById: function(id){
-      return $http.get('/api/atm/tour/'+id).then(function(response){
+      return $http.get(API_URL + '/api/atm/tours/'+id).then(function(response){
         return response
       }, function(response){
         return response;
@@ -26,6 +26,20 @@ function ActivitiesService($http, $q){
     },
     featured: function(){
       return $http.get(API_URL + '/api/atm/tours').then(function(response){
+        return response
+      }, function(response){
+        return response;
+      });
+    },
+    user: function(user){
+      return $http.get(API_URL + '/api/atm/users/'+user).then(function(response){
+        return response
+      }, function(response){
+        return response;
+      });
+    },
+    wishlist: function(wishlist, activity){
+      return $http.put(API_URL + '/api/atm/wishlist/'+wishlist, activity).then(function(response){
         return response
       }, function(response){
         return response;

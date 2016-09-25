@@ -74,3 +74,24 @@ md-card-title .md-headline{
   text-align: center;
   font-weight: bold;
 }
+
+.detail{
+  
+}
+.detail h2{
+  text-align: center;
+  color: red;
+  font-size: 30px;
+  text-decoration:underline;
+}
+.detail p{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+.detail .buttons{
+  margin: 30px auto;
+}
+.detail .md-raised{
+  width: 250px;
+}

@@ -1,4 +1,5 @@
 var API_URL = 'http://localhost:3000';
+var USER = '57e70be651bc3f0dbab8920b';
 
 
 var app = angular.module('Atm', ['ngRoute', 'ngMaterial']);
