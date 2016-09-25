@@ -66,7 +66,7 @@ function searchBarHomeDirective(){
     }
 
     function search(){
-      $location.path('/activities/'+vm.selectedItem._id);
+      $location.path('/activities');
     }
   }
 }

@@ -140,7 +140,7 @@ function DialogWishlistController($scope, $rootScope, ActivitiesService, $mdDial
   });
   
   function addActivityToWishlist(index, wishlist, which){
-    ActivitiesService.wishlist(wishlist, {
+    ActivitiesService.wishlists(wishlist, {
       tourId:vm.activity._id, 
       tourName:vm.activity.name,
       operation:'addTour'

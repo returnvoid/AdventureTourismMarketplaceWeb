@@ -96,7 +96,8 @@ header{
   margin: 0 auto;
 }
 
-activity-featured-list md-card div.img{
+activity-featured-list md-card div.img,
+giveaway-list md-card div.img{
   position:absolute;
   left:0;
   right:0;
@@ -104,11 +105,14 @@ activity-featured-list md-card div.img{
   bottom:0;
 }
 
-activity-featured-list md-card{
+activity-featured-list md-card,
+giveaway-list md-card{
   width:300px;
   height:300px;
 }
-
+giveaway-list md-card{
+  width:330px;
+}
 .list{
   margin: 20px;
 }
@@ -142,7 +146,8 @@ md-card span.price{
   color: #fff;
   background-size: 100px 96px;
 }
-activity-featured-list md-card-title{
+activity-featured-list md-card-title,
+giveaway-list md-card-title{
   position: absolute;
   top: 50%;
   left: 0;
