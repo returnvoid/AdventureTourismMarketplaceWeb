@@ -1,0 +1,76 @@
+body{
+  color: #000;
+}
+
+search-bar-home{
+  width: 400px;
+  display: block;
+  margin: 320px auto 0;
+  background-color: #fff;
+}
+search-bar-home .bar{
+  padding: 10px;
+}
+search-bar-home md-input-container{
+  padding:0;
+  margin:0;
+}
+header{
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+}
+#header{
+  height: 560px;
+  background: transparent url('../images/header.png') scroll no-repeat center top;
+}
+#header h1{
+  text-align: center;
+}
+#content{
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.list{
+  margin: 20px;
+}
+.list h2{
+  font-size: 40px;
+  text-transform: uppercase;
+  border: 5px solid #000;
+  width: 300px;
+  text-align: center;
+  margin: 20px auto 60px;
+}
+md-card{
+  position: relative;
+}
+md-card span.price{
+  position:absolute;
+  right: 20px;
+  top: 20px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 20px;
+  display: inline-block;
+  background: transparent url('images/price.png') scroll no-repeat center center;
+  line-height: 100px;
+  font-weight: bold;
+  color: red;
+}
+md-card-title{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right:0;
+  margin-top:-25px;
+}
+md-card-title .md-headline{
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
