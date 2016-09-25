@@ -3,8 +3,8 @@
  */
 angular.module('Atm')
   .directive('searchBarHome', searchBarHomeDirective)
-  .directive('activityFeaturedList', activityFeaturedListDirective);
-
+  .directive('activityFeaturedList', activityFeaturedListDirective)
+  .directive('giveawayList', giveawayListDirective);
 
 function searchBarHomeDirective(){
   return {
@@ -14,7 +14,7 @@ function searchBarHomeDirective(){
     link: link
   };
   function link(scope, element, attrs){
-  
+
   }
 
   function controller($scope, $timeout, $q, $location, ActivitiesService){
@@ -24,9 +24,9 @@ function searchBarHomeDirective(){
     vm.searchTextChange = searchTextChange;
     vm.selectedItemChange = selectedItemChange;
     vm.search = search;
-    
-    
-  
+
+
+
     function loadAll() {
       var activities = {};
       return ActivitiesService.activities().then(function(response){
@@ -37,7 +37,7 @@ function searchBarHomeDirective(){
         });
       });
     }
-  
+
     function searchTextChange(text) {
       console.log('Text changed to ' + text);
     }
@@ -45,7 +45,7 @@ function searchBarHomeDirective(){
     function selectedItemChange(item) {
       console.log('Item changed to ' + JSON.stringify(item));
     }
-  
+
     function querySearch(query){
       var results = query ? vm.activities.filter( createFilterFor(query) ) : vm.activities,
             deferred;
@@ -57,14 +57,14 @@ function searchBarHomeDirective(){
           return results;
         }
     }
-  
+
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
       return function filterFn(activity) {
         return (activity.value.indexOf(lowercaseQuery) === 0);
       };
     }
-  
+
     function search(){
       $location.path('/activities/'+vm.selectedItem._id);
     }
@@ -79,11 +79,11 @@ function activityFeaturedListDirective(){
     controllerAs: 'afl',
     link: link
   };
-  
+
   function link(scope, element, attrs){
-    
+
   }
-  
+
   function controller($scope, $location, ActivitiesService){
     var vm = this;
     vm.goToActivity = goToActivity;
@@ -93,9 +93,37 @@ function activityFeaturedListDirective(){
     }, function(response){
       console.log('error:', response);
     });
-    
+
     function goToActivity(id){
       $location.path('/activity/'+id);
+    }
+  }
+}
+
+function giveawayListDirective(){
+  return {
+    templateUrl:'templates/directives/giveawayList.html',
+    controller: controller,
+    controllerAs: 'gl',
+    link: link
+  };
+
+  function link(scope, element, attrs){
+
+  }
+
+  function controller($scope, $location, ActivitiesService){
+    var vm = this;
+    vm.goToGiveaway = goToGiveaway;
+    ActivitiesService.giveaways().then(function(response){
+      console.log('response.data:', response);
+      vm.giveaways = response.data;
+    }, function(response){
+      console.log('error:', response);
+    });
+
+    function goToGiveaway(id){
+      $location.path('/giveaway/'+id);
     }
   }
 }

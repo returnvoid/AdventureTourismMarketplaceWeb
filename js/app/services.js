@@ -61,6 +61,13 @@ function ActivitiesService($http, $q){
       }, function(response){
         return response;
       });
+    },
+    giveaways: function(){
+      return $http.get(API_URL + '/api/atm/giveaways').then(function(response){
+        return response
+      }, function(response){
+        return response;
+      });
     }
   }
 }

@@ -1,0 +1,14 @@
+<section layout="row" layout-align="center start" layout-wrap>
+  <md-card flex="30" ng-repeat="giveaway in gl.giveaways" ng-click="gl.goToGiveaway(giveaway._id)">
+    <div class="img" style="background:transparent url(images/tours/{{giveaway.tourId}}.png) scroll no-repeat center center">
+
+    </div>
+    <span class="price">{{giveaway.tourValueInCents / 100 | currency:"$":0}}</span>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{giveaway.headline}}</span>
+        <span class="tagline">{{giveaway.description}}</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+</section>
