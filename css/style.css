@@ -2,6 +2,22 @@ body{
   color: #000;
 }
 
+#logo{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 60px;
+  width: 60px;
+}
+#logo a{
+  display:inline-block;
+  height: 60px;
+  width: 60px;
+  background: transparent url('../images/logo.png') scroll no-repeat center top;
+  background-size: 60px 60px;
+  text-indent: -9999px;
+}
+
 search-bar-home{
   width: 400px;
   display: block;
@@ -19,6 +35,7 @@ header{
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 #header{
   height: 560px;
@@ -75,9 +92,6 @@ md-card-title .md-headline{
   font-weight: bold;
 }
 
-.detail{
-  
-}
 .detail h2{
   text-align: center;
   color: red;
@@ -85,7 +99,6 @@ md-card-title .md-headline{
   text-decoration:underline;
 }
 .detail p{
-  width: 50%;
   margin: 0 auto;
   text-align: center;
 }
@@ -93,5 +106,33 @@ md-card-title .md-headline{
   margin: 30px auto;
 }
 .detail .md-raised{
-  width: 250px;
+  width: 180px;
+}
+
+.info{
+  width: 500px;
+  margin: 40px auto 0;
+}
+
+.info md-content{
+  padding: 0;
+  border: 2px solid red;
+  margin-bottom: 20px;
+}
+
+.info md-content h3{
+  background: red;
+  padding: 10px;
+  margin:0;
+  color: #fff;
+  display: inline-block;
+}
+
+.info p{
+  text-align: left;
+  padding: 20px;
+}
+
+.w50{
+  width:50%;
 }

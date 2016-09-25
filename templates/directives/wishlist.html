@@ -23,7 +23,7 @@
           <md-list-item class="secondary-button-padding" ng-repeat="wishlist in dwl.wishlist.wishlistsCreated">
             <p>{{wishlist.name}}</p>
             <span flex></span>
-            <md-button class="md-raised md-primary" ng-click="dwl.addActivityToWishlist(wishlist._id)">Add Activity</md-button>
+            <md-button ng-disabled="dwl.addedToYourWishlist[$index]" class="md-raised md-primary" ng-click="dwl.addActivityToWishlist($index, wishlist._id, 'your')">Add Activity</md-button>
           </md-list-item>
         </md-list>
         
@@ -33,7 +33,7 @@
           <md-list-item class="secondary-button-padding" ng-repeat="wishlist in dwl.wishlist.wishlistsJoined">
             <p>{{wishlist.name}}</p>
             <span flex></span>
-            <md-button class="md-raised md-primary" ng-click="dwl.addActivityToWishlist(wishlist._id)">Add Activity</md-button>
+            <md-button ng-disabled="dwl.addedToAnotherWishlist[$index]" class="md-raised md-primary" ng-click="dwl.addActivityToWishlist($index, wishlist._id, 'another')">Add Activity</md-button>
           </md-list-item>
 
         </md-list>

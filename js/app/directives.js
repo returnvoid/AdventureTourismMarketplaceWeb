@@ -17,55 +17,24 @@ function searchBarHomeDirective(){
   
   }
 
-  function controller($scope, $timeout, $q, $location){
+  function controller($scope, $timeout, $q, $location, ActivitiesService){
     var vm = this;
     vm.activities = loadAll();
     vm.querySearch = querySearch;
     vm.searchTextChange = searchTextChange;
     vm.selectedItemChange = selectedItemChange;
     vm.search = search;
+    
+    
   
     function loadAll() {
-      var activities = [
-        {
-          '_id': 1,
-          'name'      : 'Angular 1',
-          'url'       : 'https://github.com/angular/angular.js',
-          'watchers'  : '3,623',
-          'forks'     : '16,175',
-        },
-        {
-          '_id': 2,
-          'name'      : 'Angular 2',
-          'url'       : 'https://github.com/angular/angular',
-          'watchers'  : '469',
-          'forks'     : '760',
-        },
-        {
-          '_id': 3,
-          'name'      : 'Angular Material',
-          'url'       : 'https://github.com/angular/material',
-          'watchers'  : '727',
-          'forks'     : '1,241',
-        },
-        {
-          '_id': 4,
-          'name'      : 'Bower Material',
-          'url'       : 'https://github.com/angular/bower-material',
-          'watchers'  : '42',
-          'forks'     : '84',
-        },
-        {
-          '_id': 5,
-          'name'      : 'Material Start',
-          'url'       : 'https://github.com/angular/material-start',
-          'watchers'  : '81',
-          'forks'     : '303',
-        }
-      ];
-      return activities.map( function (activity) {
-        activity.value = activity.name.toLowerCase();
-        return activity;
+      var activities = {};
+      return ActivitiesService.activities().then(function(response){
+        var activities = response.data;
+        return activities.map( function (activity) {
+          activity.value = activity.name.toLowerCase();
+          return activity;
+        });
       });
     }
   
@@ -91,7 +60,6 @@ function searchBarHomeDirective(){
   
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
-
       return function filterFn(activity) {
         return (activity.value.indexOf(lowercaseQuery) === 0);
       };

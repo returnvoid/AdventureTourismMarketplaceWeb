@@ -66,6 +66,8 @@ function DialogWishlistController($scope, $rootScope, ActivitiesService, $mdDial
   var vm = this;
   vm.activity = $rootScope.currentActivity;
   vm.addActivityToWishlist = addActivityToWishlist;
+  vm.addedToYourWishlist = [];
+  vm.addedToAnotherWishlist = [];
   
   ActivitiesService.user(USER).then(function(response){
     console.log('response.user:', response);
@@ -74,9 +76,19 @@ function DialogWishlistController($scope, $rootScope, ActivitiesService, $mdDial
     console.log('error:', response);
   });
   
-  function addActivityToWishlist(wishlist){
-    ActivitiesService.wishlist(wishlist, {id:vm.activity._id, name:vm.activity.name}).then(function(response){
+  function addActivityToWishlist(index, wishlist, which){
+    ActivitiesService.wishlist(wishlist, {
+      tourId:vm.activity._id, 
+      tourName:vm.activity.name,
+      operation:'addTour'
+    }).then(function(response){
       console.log('response.user:', response);
+      if(which == 'your'){
+        vm.addedToYourWishlist[index] = true;
+      }else{
+        vm.addedToAnotherWishlist[index] = true;
+      }
+      
     }, function(response){
       console.log('error:', response);
     });
