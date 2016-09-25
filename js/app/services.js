@@ -51,6 +51,16 @@ function ActivitiesService($http, $q){
       }, function(response){
         return response;
       });
+    },
+    voteWishlist: function(wishlist, activity){
+      return $http.put(API_URL + '/api/atm/wishlists/'+wishlist, { 
+        "operation": "vote",
+        "tourId": activity
+      }).then(function(response){
+        return response
+      }, function(response){
+        return response;
+      });
     }
   }
 }

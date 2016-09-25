@@ -176,11 +176,16 @@ function WishlistsController($scope, $routeParams, $filter, $location, Activitie
   vm.wasLoaded = false;
   vm.wasUsersLoaded = false;
   vm.wishlist = '57e70dc051bc3f0dbab89213';
+  vm.openCommentBox = openCommentBox;
   vm.addToWishlist = addToWishlist;
+  vm.vote = vote;
 
   ActivitiesService.wishlists(vm.wishlist).then(function(response){
     console.log('response:', response);
     vm.wishlists = response.data;
+    angular.forEach(vm.wishlists.tours, function(v, k){
+      v.commentIsOpen = false;
+    });
     vm.wasLoaded = true;
     vm.wasUsersLoaded = true;
   }, function(response){
@@ -207,7 +212,13 @@ function WishlistsController($scope, $routeParams, $filter, $location, Activitie
     }, function(response){
       console.log('error:', response);
     });
-    
+  }
+  function openCommentBox(index){
+    vm.wishlists.tours[index].commentIsOpen = !vm.wishlists.tours[index].commentIsOpen;
+  } 
+  
+  function vote(index){
+    vm.wishlists.tours[index].vote = vm.wishlists.tours[index].vote + 1;
     
   }
 }

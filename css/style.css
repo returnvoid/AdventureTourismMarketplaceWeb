@@ -252,11 +252,8 @@ footer{
 }
 .users p span{
   font-size:12px;
-}
-.users p span.red{
   color: red;
 }
-
-.users p span.green{
+.users p span.red{
   color: green;
 }
