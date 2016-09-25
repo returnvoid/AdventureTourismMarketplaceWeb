@@ -1,7 +1,9 @@
-<section layout="row" layout-align="start start" layout-wrap>
-  <md-card flex="30" ng-repeat="featuredActivity in afl.featuredActivities" ng-click="afl.goToActivity(featuredActivity._id)">
-    <img ng-src="images/tours/{{featuredActivity._id}}.png" class="md-card-image" alt="Washed Out">
-    <span class="price">{{featuredActivity.prices[0].priceInCents | currency:"$":0}}</span>
+<section layout="row" layout-align="center start" layout-wrap>
+  <md-card flex="30" ng-repeat="featuredActivity in afl.featuredActivities | limitTo: 6" ng-click="afl.goToActivity(featuredActivity._id)">
+    <div class="img" style="background:transparent url(images/tours/{{featuredActivity._id}}.png) scroll no-repeat center center">
+      
+    </div>
+    <span class="price">{{featuredActivity.prices[0].priceInCents / 100 | currency:"$":0}}</span>
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline">{{featuredActivity.name}}</span>

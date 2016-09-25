@@ -1,23 +1,9 @@
 <div id="main" class="container" layout="column" style="margin-top:40px">
     <section flex class="detail activities" layout="row">
-      <md-content class="refines" flex="30" layout="column">
-        <md-card style="padding:0">
-          <h2 style="background-color:red;padding:10px 20px;text-align:left;color:#fff;text-decoration:none;margin:0 0 20px 0;font-size:25px">Refine</h2>
-          <ul ng-repeat="refines in vm.refines" style="margin:0;list-style:none">
-            <li>
-              <h3>{{vm.titles[$index]}}</h3>
-              <div flex="100" ng-repeat="refine in refines">
-                <md-checkbox>
-                  {{refine.name}}
-                </md-checkbox>
-              </div>
-            </li>
-          </ul>
-        <md-card>
-      </md-content>
+      
       <md-content flex="70" layout="column">
         <md-progress-linear ng-if="!vm.wasLoaded" md-mode="indeterminate"></md-progress-linear>
-        <md-card flex ng-repeat="activity in vm.activities">
+        <md-card flex ng-repeat="activity in vm.wishlists.tours">
           <md-card-title>
             <md-card-title-media>
               <div flex class="md-media-lg card-media" style="background: transparent url(images/tours/{{activity._id}}.png) scroll no-repeat center center;background-size:380px auto">
@@ -27,7 +13,7 @@
             <md-card-title-text>
               <span class="md-headline">{{activity.name}}</span>
               <span class="md-subhead">{{activity.summaryDescription}}</span>
-              <span class="price">{{activity.prices[0].priceInCents / 100 | currency:"$":0}}</span>
+              <span class="price">{{activity.priceInCents / 100 | currency:"$":0}}</span>
               <div flex>
                 <i class="fa fa-star active" aria-hidden="true"></i>
                 <i class="fa fa-star active" aria-hidden="true"></i>
@@ -42,7 +28,18 @@
             </md-card-title-text>      
           </md-card-title>
         </md-card>
-      </md-content>      
+      </md-content>
+      
+      <md-content class="refines" flex="30" layout="column">
+        <md-progress-linear ng-if="!vm.wasUsersLoaded" md-mode="indeterminate"></md-progress-linear>
+        <md-list>
+          <md-list-item ng-repeat="user in vm.wishlists.users" ng-click="goToPerson(person.name, $event)" class="noright">
+              <img alt="{{ user.name }}" ng-src="images/users/{{user.img}}.png" class="md-avatar" />
+              <p>{{user.firstName}} {{user.lastName}}</p>
+            </md-list-item>
+        </md-list>
+        
+      </md-content> 
       </div>
     </section>
 </div>

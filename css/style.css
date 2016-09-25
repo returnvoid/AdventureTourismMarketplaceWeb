@@ -2,27 +2,71 @@ body{
   color: #000;
 }
 
+nav.menu{
+  position: absolute;
+  left: 120px;
+  top: 20px;
+  width: 400px;
+}
+
+nav.menu ul{
+  padding:0;
+  list-style: none;
+  margin: 0;
+}
+
+nav.menu ul.first{
+  margin-bottom:16px;
+}
+
+nav.menu ul.second{
+  font-size: 16px;
+  border-bottom:3px solid #fff;
+  margin-bottom:20px;
+  padding-bottom:6px;
+}
+
+nav.menu ul li{
+  padding:0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+}
+nav.menu ul li a{
+  color: #fff;
+  text-decoration: none;
+}
+
+nav.menu span{
+  margin-left:26px;
+  color:#fff;
+}
+
 #logo{
   position: absolute;
-  left: 10px;
-  top: 10px;
-  height: 60px;
-  width: 60px;
+  left: 20px;
+  top: 20px;
+  height: 80px;
+  width: 80px;
+  margin:0;
 }
 #logo a{
   display:inline-block;
-  height: 60px;
-  width: 60px;
-  background: transparent url('../images/logo.png') scroll no-repeat center top;
-  background-size: 60px 60px;
+  height: 80px;
+  width: 80px;
+  background: transparent url('../images/logo.png?r=123456') scroll no-repeat center top;
+  background-size: 80px 80px;
   text-indent: -9999px;
 }
 
 search-bar-home{
   width: 400px;
   display: block;
-  margin: 320px auto 0;
   background-color: #fff;
+  position:absolute;
+  right:20px;
+  top:20px;
 }
 search-bar-home .bar{
   padding: 10px;
@@ -36,10 +80,12 @@ header{
   width: 100%;
   margin: 0 auto;
   position: relative;
+  height: 130px;
+  background: transparent url('../images/header.png?r=123456') scroll no-repeat center top;
 }
 #header{
-  height: 560px;
-  background: transparent url('../images/header.png') scroll no-repeat center top;
+  height: 430px;
+  background: transparent url('../images/header.png?r=123456') scroll no-repeat center -130px;
 }
 #header h1{
   text-align: center;
@@ -48,6 +94,19 @@ header{
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+}
+
+activity-featured-list md-card div.img{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+
+activity-featured-list md-card{
+  width:300px;
+  height:300px;
 }
 
 .list{
@@ -78,12 +137,18 @@ md-card span.price{
   font-weight: bold;
   color: red;
 }
-md-card-title{
+.activities md-card span.price{
+  background: transparent url('images/pricered.png') scroll no-repeat center center;
+  color: #fff;
+  background-size: 100px 96px;
+}
+activity-featured-list md-card-title{
   position: absolute;
   top: 50%;
   left: 0;
   right:0;
-  margin-top:-25px;
+  margin-top:-45px;
+  text-shadow: 0px 0px 8px #000;
 }
 md-card-title .md-headline{
   font-size: 25px;
@@ -92,6 +157,10 @@ md-card-title .md-headline{
   font-weight: bold;
 }
 
+.detail > img{
+  width: 70%;
+  margin:0 auto;
+}
 .detail h2{
   text-align: center;
   color: red;
@@ -135,4 +204,44 @@ md-card-title .md-headline{
 
 .w50{
   width:50%;
+}
+
+.tagline{
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.activities md-card-title .md-headline{
+  color: #000;
+  text-align: left;
+  margin-top: 10px;
+}
+.activities md-card-title .md-headline,
+.activities md-card-title .md-subhead{
+  margin-right: 130px;
+}
+.activities md-card-title{
+  position: relative;
+  margin: 0;
+  top: 0;
+  padding: 0;
+}
+.activities md-card md-card-title md-card-title-media{
+  margin-top: 0;
+}
+.activities md-card md-card-title md-card-title-media .md-media-lg{
+  width: 200px;
+  height: 200px;
+}
+
+.activities .fa-star.active{
+  color: orange;
+}
+
+footer{
+  height:220px;
+  margin-top:80px;
+  background: #ddd url('../images/logofooter.png?r=123456') scroll no-repeat center center;
+  background-size: 100px 100px;
 }

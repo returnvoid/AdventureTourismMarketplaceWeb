@@ -11,13 +11,17 @@ app.config(['$routeProvider',
                 templateUrl: 'templates/home.html',
                 controller: 'HomeController as vm'
             }).
-            when('/activities/:category', {
+            when('/activities', {
                 templateUrl: 'templates/activities.html',
                 controller: 'ActivitiesController as vm'
             }).
             when('/activity/:id', {
                 templateUrl: 'templates/activity.html',
                 controller: 'ActivityController as vm'
+            }).
+            when('/wishlists', {
+                templateUrl: 'templates/wishlists.html',
+                controller: 'WishlistsController as vm'
             }).
             otherwise({
                 redirectTo: '/'

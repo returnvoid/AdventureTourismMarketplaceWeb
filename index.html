@@ -28,6 +28,24 @@
       <h1 id="logo">
         <a href="/#/">Home</a>
       </h1>
+      
+      <search-bar-home></search-bar-home>
+      
+      <nav class="menu" layout="column">
+        <ul class="first" flex layout="row">
+          <li flex="30"><a href="#">Account</a></li>
+          <li flex="30"><a href="#">Login / Sign up</a></li>
+        </ul>
+        <ul class="second" flex layout="row" layout-align="center center">
+          <li flex><a href="/#/about">About</a></li>
+          <li flex><a href="/#/giveaways">Giveaways</a></li>
+          <li flex><a href="/#/activities">Tours</a></li>
+          <li flex><a href="/#/wishlists">Wishlist</a></li>
+        </ul>
+        <span flex layout="row">
+          Book the adventure that you really want
+        </span>
+      </nav>
     </header>
 
     <div id="content" ng-view=""></div>

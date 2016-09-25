@@ -74,7 +74,7 @@ function searchBarHomeDirective(){
 
 function activityFeaturedListDirective(){
   return {
-    templateUrl:'templates/directives/activityFeaturedList.html',
+    templateUrl:'templates/directives/activityFeaturedList.html?r=345876384',
     controller: controller,
     controllerAs: 'afl',
     link: link

@@ -45,8 +45,8 @@ function ActivitiesService($http, $q){
         return response;
       });
     },
-    wishlist: function(wishlist, activity){
-      return $http.put(API_URL + '/api/atm/wishlists/'+wishlist, activity).then(function(response){
+    wishlists: function(wishlist){
+      return $http.get(API_URL + '/api/atm/wishlists/'+wishlist).then(function(response){
         return response
       }, function(response){
         return response;
