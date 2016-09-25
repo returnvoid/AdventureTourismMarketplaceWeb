@@ -30,14 +30,16 @@
         </md-card>
       </md-content>
       
-      <md-content class="refines" flex="30" layout="column">
+      <md-content class="refines users" flex="30" layout="column">
         <md-progress-linear ng-if="!vm.wasUsersLoaded" md-mode="indeterminate"></md-progress-linear>
-        <md-list>
-          <md-list-item ng-repeat="user in vm.wishlists.users" ng-click="goToPerson(person.name, $event)" class="noright">
-              <img alt="{{ user.name }}" ng-src="images/users/{{user.img}}.png" class="md-avatar" />
-              <p>{{user.firstName}} {{user.lastName}}</p>
-            </md-list-item>
-        </md-list>
+        <md-card>
+          <md-list>
+            <md-list-item ng-repeat="user in vm.wishlists.users" ng-click="goToPerson(person.name, $event)" class="noright">
+                <img alt="{{user.firstName}}" ng-src="images/users/{{user._id}}.png" class="md-avatar" />
+                <p>{{user.firstName}} {{user.lastName}} <br> <span ng:class="{'red':user.confirmed == 'Confirmed'}">{{user.confirmed ? 'Confirmed' : 'Waiting confirmation'}}</span></p>
+              </md-list-item>
+          </md-list>
+        </md-card>
         
       </md-content> 
       </div>

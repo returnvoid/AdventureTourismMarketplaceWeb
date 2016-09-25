@@ -245,3 +245,18 @@ footer{
   background: #ddd url('../images/logofooter.png?r=123456') scroll no-repeat center center;
   background-size: 100px 100px;
 }
+
+.users p{
+  text-align:left;
+  line-height:100%;
+}
+.users p span{
+  font-size:12px;
+}
+.users p span.red{
+  color: red;
+}
+
+.users p span.green{
+  color: green;
+}
